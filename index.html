@@ -4,32 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SwiftGain by Zyric & Co.</title>
-
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-  <!-- TradingView Library -->
-  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    /* Reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       background-color: #ffffff;
       color: #000000;
       line-height: 1.6;
     }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+
+    a { color: inherit; text-decoration: none; }
+
     header {
       background-color: #ffffff;
       padding: 1rem 2rem;
@@ -38,14 +25,10 @@
       justify-content: space-between;
       border-bottom: 1px solid #e0e0e0;
     }
-    .logo-container {
-      display: flex;
-      align-items: center;
-    }
-    .logo-container img {
-      height: 50px;
-      margin-right: 15px;
-    }
+
+    .logo-container { display: flex; align-items: center; }
+    .logo-container img { height: 48px; margin-right: 15px; }
+
     .logo-text h1 {
       margin: 0;
       font-size: 1.5rem;
@@ -56,6 +39,7 @@
       font-size: 0.9rem;
       color: #555555;
     }
+
     nav {
       background-color: #f8f8f8;
       display: flex;
@@ -66,29 +50,24 @@
     nav a {
       color: #000000;
       padding: 0.75rem 1.25rem;
-      text-decoration: none;
       font-weight: 500;
     }
     nav a:hover {
       background-color: #e0e0e0;
       border-radius: 5px;
     }
+
     section {
       max-width: 960px;
       margin: auto;
       padding: 2rem;
     }
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    ul {
-      list-style-type: disc;
-      padding-left: 1.5rem;
-    }
+    h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+    ul { list-style: disc; padding-left: 1.5rem; }
+
     .plan-button {
-      background-color: #007BFF;
-      color: #ffffff;
+      background-color: #000;
+      color: #fff;
       padding: 0.75rem 1.5rem;
       border: none;
       border-radius: 0.5rem;
@@ -97,8 +76,41 @@
       font-weight: bold;
     }
     .plan-button:hover {
-      background-color: #0056b3;
+      background-color: #333;
     }
+
+    .subscriber-count {
+      font-size: 1.1rem;
+      margin: 1rem 0;
+      font-weight: bold;
+      color: #16a34a;
+    }
+    .green-dot {
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+      background-color: #16a34a;
+      border-radius: 50%;
+      margin-left: 0.5rem;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity: 1; }
+      50%     { opacity: 0; }
+    }
+
+    .chart-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .chart-container iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+    }
+
     footer {
       background-color: #f8f8f8;
       color: #555555;
@@ -106,35 +118,25 @@
       padding: 1rem;
       border-top: 1px solid #e0e0e0;
     }
-    .live-user-count {
-      text-align: center;
-      font-weight: bold;
-      margin: 2rem 0;
-      font-size: 1.2rem;
-    }
-    .green-dot {
-      height: 10px;
-      width: 10px;
-      background-color: green;
-      border-radius: 50%;
-      display: inline-block;
-      animation: blink 1s infinite;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-    .swiper-container {
-      width: 100%;
-      height: 400px;
-      margin-top: 2rem;
+
+    @media (max-width: 768px) {
+      header, nav, section { padding: 1rem; }
+      .logo-container { flex-direction: column; align-items: flex-start; }
+      nav { flex-direction: column; align-items: center; }
+      nav a { padding: 0.5rem 0; }
     }
   </style>
+  <script>
+    function showPlansMessage() {
+      alert("Currently, all investment plans are unavailable. Please check back soon.");
+    }
+  </script>
 </head>
 <body>
+
   <header>
     <div class="logo-container">
-      <img src="logo.png" alt="Zyric & Co. Logo" />
+      <img src="logo.png" alt="Zyric & Co. Logo">
       <div class="logo-text">
         <h1>SwiftGain</h1>
         <p>by Zyric & Co.</p>
@@ -152,86 +154,49 @@
 
   <section id="home">
     <h2>Welcome to Zyric & Co.</h2>
-    <p>Zyric & Co. is a forward-thinking financial consultancy, specializing in forex trading and investment automation through intelligent tools like SwiftGain.</p>
+    <p><strong>Zyric & Co.</strong> is a forward‑thinking financial consultancy, specializing in forex trading and investment automation.</p>
+    <p class="subscriber-count">
+      Total Active Plan Subscribers: 32,597
+      <span class="green-dot"></span>
+    </p>
   </section>
 
-  <section class="live-user-count">
-    <span>Live Users: <span id="userCount">1528</span> <span class="green-dot"></span></span>
+  <section id="about">
+    <h2>About SwiftGain</h2>
+    <p><strong>SwiftGain</strong> is a financial tool by Zyric & Co. offering plan‑based profits through advanced forex trading strategies.</p>
   </section>
 
-  <section id="forex-charts">
-    <h2>Live Forex Charts</h2>
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="tradingview-widget-container"><div id="tradingview_eurusd"></div></div>
-        </div>
-        <div class="swiper-slide">
-          <div class="tradingview-widget-container"><div id="tradingview_gbpusd"></div></div>
-        </div>
-      </div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+  <section id="plans">
+    <h2>Investment Plans</h2>
+    <ul>
+      <li>Daily Return Plan</li>
+      <li>Weekly Growth Plan</li>
+      <li>LTF Strategy Plan</li>
+    </ul>
+    <button class="plan-button" onclick="showPlansMessage()">Available Plans</button>
+  </section>
+
+  <section id="features">
+    <h2>Live Forex Analysis</h2>
+    <div class="chart-container">
+      <!-- EUR/USD mini overview -->
+      <iframe src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22FX%3AEURUSD%22%7D"></iframe>
+      <!-- GBP/USD advanced chart -->
+      <iframe src="https://s.tradingview.com/embed-widget/advanced-chart/?symbol=FX%3AGBPUSD&interval=60&theme=light&style=1&locale=en"></iframe>
     </div>
   </section>
 
-  <script>
-    let min = 1528, max = 4267;
-    function updateUserCount() {
-      document.getElementById('userCount').textContent = Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-    setInterval(updateUserCount, 2000);
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: support@zyricco.com</p>
+    <p>Telegram: <a href="https://t.me/zyricSWIFTGAIN_bot" target="_blank">SwiftGain BOT</a></p>
+    <p>Office: 10 Rue de la Paix, 75002 Paris, France</p>
+    <p>Hours: Monday–Friday, 9AM–5PM</p>
+  </section>
 
-    var swiper = new Swiper('.swiper-container', {
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
+  <footer>
+    <p>&copy; 2025 SwiftGain by Zyric & Co. All rights reserved.</p>
+  </footer>
 
-    new TradingView.widget({
-      "container_id": "tradingview_eurusd",
-      "width": "100%",
-      "height": 400,
-      "symbol": "FX:EURUSD",
-      "interval": "D",
-      "timezone": "Etc/UTC",
-      "theme": "light",
-      "style": "1",
-      "locale": "en",
-      "toolbar_bg": "#f1f3f6",
-      "enable_publishing": false,
-      "hide_top_toolbar": true,
-      "save_image": false,
-      "show_popup_button": true,
-      "popup_width": "1000",
-      "popup_height": "650"
-    });
-
-    new TradingView.widget({
-      "container_id": "tradingview_gbpusd",
-      "width": "100%",
-      "height": 400,
-      "symbol": "FX:GBPUSD",
-      "interval": "D",
-      "timezone": "Etc/UTC",
-      "theme": "light",
-      "style": "1",
-      "locale": "en",
-      "toolbar_bg": "#f1f3f6",
-      "enable_publishing": false,
-      "hide_top_toolbar": true,
-      "save_image": false,
-      "show_popup_button": true,
-      "popup_width": "1000",
-      "popup_height": "650"
-    });
-  </script>
 </body>
 </html>
