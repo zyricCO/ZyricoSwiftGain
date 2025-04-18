@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SwiftGain by Zyric & Co.</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d1117;
+      color: #f0f0f0;
+    }
+
+    header {
+      background-color: #0d1117;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 60px;
+      margin-right: 15px;
+    }
+
+    .logo-text h1 {
+      margin: 0;
+      color: gold;
+      font-size: 1.75rem;
+    }
+
+    .logo-text p {
+      margin: 0;
+      color: #c4b37c;
+      font-size: 0.95rem;
+    }
+
+    nav {
+      background-color: #111827;
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem 0;
+    }
+
+    nav a {
+      color: white;
+      padding: 0.75rem 1.25rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      background-color: #1f2937;
+      border-radius: 5px;
+    }
+
+    section {
+      max-width: 960px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .highlight {
+      color: gold;
+      font-weight: bold;
+    }
+
+    .plan-button {
+      background-color: gold;
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .plan-button:hover {
+      background-color: #d4af37;
+    }
+
+    footer {
+      background-color: #0d1117;
+      color: #aaa;
+      text-align: center;
+      padding: 1rem;
+      border-top: 1px solid #2a2a2a;
+    }
+  </style>
+  <script>
+    function showPlansMessage() {
+      alert("Currently, all investment plans are unavailable. Please check back soon.");
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="Zyric & Co. Logo" />
+      <div class="logo-text">
+        <h1>SwiftGain</h1>
+        <p>by Zyric & Co.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#plans">Plans</a>
+    <a href="#features">Features</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About SwiftGain</h2>
+    <p>
+      <span class="highlight">SwiftGain</span> is a premier financial tool by Zyric & Co., engineered to offer
+      consistent, plan-based profits through advanced forex trading strategies. Combining market precision,
+      certified expertise, and adaptive intelligence, SwiftGain helps you earn reliable daily or weekly returns.
+    </p>
+  </section>
+
+  <section id="plans">
+    <h2>Investment Plans</h2>
+    <ul>
+      <li>Daily Return Plan – Short-term profits with low-risk trades</li>
+      <li>Weekly Growth Plan – Balanced growth and stable returns</li>
+      <li>LTF Strategy Plan – Long-term focused with expert-backed security</li>
+    </ul>
+    <button class="plan-button" onclick="showPlansMessage()">Available Plans</button>
+  </section>
+
+  <section id="features">
+    <h2>Why Choose SwiftGain?</h2>
+    <ul>
+      <li>Certified Strategies (CFP® & CFA® oversight)</li>
+      <li>Smart Risk Management</li>
+      <li>Real-Time Market Adaptation</li>
+      <li>Telegram Bot Access: <a href="https://t.me/zyricSWIFTGAIN_bot" target="_blank" style="color: gold;">SwiftGain BOT</a></li>
+      <li>Secure & Transparent Profits</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: support@zyricco.com</p>
+    <p>Telegram: <a href="https://t.me/zyricSWIFTGAIN_bot" target="_blank" style="color: gold;">SwiftGain BOT</a></p>
+    <p>Office Hours: 9:00 AM – 5:00 PM</p>
+    <p>Address: 10 Rue de la Paix, 75002 Paris, France</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 SwiftGain by Zyric & Co. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
