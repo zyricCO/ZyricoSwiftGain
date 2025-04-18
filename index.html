@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SwiftGain by Zyric & Co.</title>
   <style>
-    /* Reset */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -15,7 +18,10 @@
       line-height: 1.6;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     header {
       background-color: #ffffff;
@@ -26,14 +32,22 @@
       border-bottom: 1px solid #e0e0e0;
     }
 
-    .logo-container { display: flex; align-items: center; }
-    .logo-container img { height: 48px; margin-right: 15px; }
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 48px;
+      margin-right: 15px;
+    }
 
     .logo-text h1 {
       margin: 0;
       font-size: 1.5rem;
       font-weight: bold;
     }
+
     .logo-text p {
       margin: 0;
       font-size: 0.9rem;
@@ -47,11 +61,14 @@
       padding: 0.5rem 0;
       border-bottom: 1px solid #e0e0e0;
     }
+
     nav a {
       color: #000000;
       padding: 0.75rem 1.25rem;
+      text-decoration: none;
       font-weight: 500;
     }
+
     nav a:hover {
       background-color: #e0e0e0;
       border-radius: 5px;
@@ -62,12 +79,20 @@
       margin: auto;
       padding: 2rem;
     }
-    h2 { font-size: 1.5rem; margin-bottom: 1rem; }
-    ul { list-style: disc; padding-left: 1.5rem; }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+    }
 
     .plan-button {
-      background-color: #000;
-      color: #fff;
+      background-color: #000000;
+      color: #ffffff;
       padding: 0.75rem 1.5rem;
       border: none;
       border-radius: 0.5rem;
@@ -75,40 +100,44 @@
       margin-top: 1rem;
       font-weight: bold;
     }
+
     .plan-button:hover {
-      background-color: #333;
+      background-color: #333333;
     }
 
     .subscriber-count {
-      font-size: 1.1rem;
-      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
       font-weight: bold;
-      color: #16a34a;
-    }
-    .green-dot {
-      display: inline-block;
-      height: 10px;
-      width: 10px;
-      background-color: #16a34a;
-      border-radius: 50%;
-      margin-left: 0.5rem;
-      animation: blink 1s infinite;
-    }
-    @keyframes blink {
-      0%,100% { opacity: 1; }
-      50%     { opacity: 0; }
+      font-size: 1.2rem;
     }
 
-    .chart-container {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      margin-top: 1rem;
+    .blinking-dot {
+      height: 10px;
+      width: 10px;
+      background-color: green;
+      border-radius: 50%;
+      margin-right: 10px;
+      animation: blink 1s infinite;
     }
-    .chart-container iframe {
-      width: 100%;
-      height: 400px;
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .charts-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    iframe {
       border: none;
+      border-radius: 10px;
     }
 
     footer {
@@ -120,10 +149,32 @@
     }
 
     @media (max-width: 768px) {
-      header, nav, section { padding: 1rem; }
-      .logo-container { flex-direction: column; align-items: flex-start; }
-      nav { flex-direction: column; align-items: center; }
-      nav a { padding: 0.5rem 0; }
+      header, nav, section {
+        padding: 1rem;
+      }
+
+      .logo-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        padding: 0.5rem 0;
+      }
+
+      .charts-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      iframe {
+        width: 100% !important;
+      }
     }
   </style>
   <script>
@@ -136,7 +187,7 @@
 
   <header>
     <div class="logo-container">
-      <img src="logo.png" alt="Zyric & Co. Logo">
+      <img src="logo.png" alt="Zyric & Co. Logo" />
       <div class="logo-text">
         <h1>SwiftGain</h1>
         <p>by Zyric & Co.</p>
@@ -154,35 +205,35 @@
 
   <section id="home">
     <h2>Welcome to Zyric & Co.</h2>
-    <p><strong>Zyric & Co.</strong> is a forward‑thinking financial consultancy, specializing in forex trading and investment automation.</p>
-    <p class="subscriber-count">
+    <p><strong>Zyric & Co.</strong> is a forward-thinking financial consultancy, specializing in forex trading and investment automation through intelligent tools like <strong>SwiftGain</strong>.</p>
+    
+    <div class="subscriber-count">
+      <div class="blinking-dot"></div>
       Total Active Plan Subscribers: 32,597
-      <span class="green-dot"></span>
-    </p>
+    </div>
   </section>
 
   <section id="about">
     <h2>About SwiftGain</h2>
-    <p><strong>SwiftGain</strong> is a financial tool by Zyric & Co. offering plan‑based profits through advanced forex trading strategies.</p>
+    <p><strong>SwiftGain</strong> is a premier financial tool by Zyric & Co., engineered to offer consistent, plan-based profits through advanced forex trading strategies.</p>
   </section>
 
   <section id="plans">
     <h2>Investment Plans</h2>
     <ul>
-      <li>Daily Return Plan</li>
-      <li>Weekly Growth Plan</li>
-      <li>LTF Strategy Plan</li>
+      <li>Daily Return Plan – Short-term profits with low-risk trades</li>
+      <li>Weekly Growth Plan – Balanced growth and stable returns</li>
+      <li>LTF Strategy Plan – Long-term focused with expert-backed security</li>
     </ul>
     <button class="plan-button" onclick="showPlansMessage()">Available Plans</button>
   </section>
 
   <section id="features">
-    <h2>Live Forex Analysis</h2>
-    <div class="chart-container">
-      <!-- EUR/USD mini overview -->
-      <iframe src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22FX%3AEURUSD%22%7D"></iframe>
-      <!-- GBP/USD advanced chart -->
-      <iframe src="https://s.tradingview.com/embed-widget/advanced-chart/?symbol=FX%3AGBPUSD&interval=60&theme=light&style=1&locale=en"></iframe>
+    <h2>Live Forex Charts</h2>
+    <div class="charts-container">
+      <iframe src="https://www.tradingview.com/widgetembed/?frameElementId=tradingview_123&symbol=FX:EURUSD&interval=30&symboledit=1&saveimage=1&toolbarbg=F1F3F6&studies=[]&theme=light&style=1&timezone=Etc/UTC&withdateranges=1&hideideas=1&studies_overrides={}" width="350" height="300"></iframe>
+      <iframe src="https://www.tradingview.com/widgetembed/?frameElementId=tradingview_456&symbol=FX:USDJPY&interval=15&symboledit=1&saveimage=1&toolbarbg=F1F3F6&studies=[]&theme=light&style=1&timezone=Etc/UTC&withdateranges=1&hideideas=1" width="350" height="300"></iframe>
+      <iframe src="https://www.tradingview.com/widgetembed/?frameElementId=tradingview_789&symbol=FX:GBPUSD&interval=60&symboledit=1&saveimage=1&toolbarbg=F1F3F6&studies=[]&theme=light&style=1&timezone=Etc/UTC&withdateranges=1&hideideas=1" width="350" height="300"></iframe>
     </div>
   </section>
 
@@ -190,13 +241,12 @@
     <h2>Contact Us</h2>
     <p>Email: support@zyricco.com</p>
     <p>Telegram: <a href="https://t.me/zyricSWIFTGAIN_bot" target="_blank">SwiftGain BOT</a></p>
-    <p>Office: 10 Rue de la Paix, 75002 Paris, France</p>
-    <p>Hours: Monday–Friday, 9AM–5PM</p>
+    <p>Office Address: 10 Rue de la Paix, 75002 Paris, France</p>
+    <p>Office Hours: Monday - Friday | 9:00 AM - 5:00 PM</p>
   </section>
 
   <footer>
     <p>&copy; 2025 SwiftGain by Zyric & Co. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
