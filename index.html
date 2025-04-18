@@ -2,123 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SwiftGain by Zyric & Co.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
     body {
-      font-family: 'Inter', sans-serif;
       margin: 0;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #0d1117;
-      color: #e5e7eb;
-      line-height: 1.6;
+      color: #f0f0f0;
     }
 
     header {
-      background-color: #0f172a;
+      background-color: #0d1117;
       padding: 1rem 2rem;
-      border-bottom: 1px solid #1e293b;
-      animation: fadeInUp 0.8s ease-out;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    .top-bar {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: auto;
+      justify-content: space-between;
+      border-bottom: 1px solid #2a2a2a;
     }
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #FFD700;
-      text-shadow: 0 0 5px rgba(255, 215, 0, 0.4);
+    .logo-container {
+      display: flex;
+      align-items: center;
     }
 
-    .nav-links a {
-      color: #e5e7eb;
+    .logo-container img {
+      height: 60px;
+      margin-right: 15px;
+    }
+
+    .logo-text h1 {
+      margin: 0;
+      color: gold;
+      font-size: 1.75rem;
+    }
+
+    .logo-text p {
+      margin: 0;
+      color: #c4b37c;
+      font-size: 0.95rem;
+    }
+
+    nav {
+      background-color: #111827;
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem 0;
+    }
+
+    nav a {
+      color: white;
+      padding: 0.75rem 1.25rem;
       text-decoration: none;
-      margin-left: 2rem;
       font-weight: 500;
-      transition: color 0.3s ease;
     }
 
-    .nav-links a:hover {
-      color: #60a5fa;
+    nav a:hover {
+      background-color: #1f2937;
+      border-radius: 5px;
     }
 
     section {
       max-width: 960px;
       margin: auto;
       padding: 2rem;
-      animation: fadeInUp 1.4s ease-out;
-    }
-
-    h2 {
-      color: #3b82f6;
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    ul {
-      list-style-type: disc;
-      padding-left: 1.5rem;
     }
 
     .highlight {
-      color: #60a5fa;
+      color: gold;
       font-weight: bold;
     }
 
     .plan-button {
-      background-color: #2563eb;
-      color: white;
+      background-color: gold;
+      color: #000;
       padding: 0.75rem 1.5rem;
       border: none;
-      border-radius: 0.375rem;
-      font-size: 1rem;
-      font-weight: 600;
+      border-radius: 0.5rem;
       cursor: pointer;
       margin-top: 1rem;
-      transition: background-color 0.3s;
+      font-weight: bold;
     }
 
     .plan-button:hover {
-      background-color: #1d4ed8;
-    }
-
-    a.button-link {
-      display: inline-block;
-      margin-top: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      background-color: #0ea5e9;
-      color: white;
-      border-radius: 0.375rem;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    a.button-link:hover {
-      background-color: #0284c7;
+      background-color: #d4af37;
     }
 
     footer {
-      background-color: #0f172a;
-      color: #cbd5e1;
+      background-color: #0d1117;
+      color: #aaa;
       text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      animation: fadeInUp 1.6s ease-out;
+      padding: 1rem;
+      border-top: 1px solid #2a2a2a;
     }
   </style>
   <script>
@@ -128,17 +103,23 @@
   </script>
 </head>
 <body>
+
   <header>
-    <div class="top-bar">
-      <div class="logo">SwiftGain</div>
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#plans">Plans</a>
-        <a href="#features">Features</a>
-        <a href="#contact">Contact</a>
-      </nav>
+    <div class="logo-container">
+      <img src="logo.png" alt="Zyric & Co. Logo" />
+      <div class="logo-text">
+        <h1>SwiftGain</h1>
+        <p>by Zyric & Co.</p>
+      </div>
     </div>
   </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#plans">Plans</a>
+    <a href="#features">Features</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <section id="about">
     <h2>About SwiftGain</h2>
@@ -165,7 +146,7 @@
       <li>Certified Strategies (CFP® & CFA® oversight)</li>
       <li>Smart Risk Management</li>
       <li>Real-Time Market Adaptation</li>
-      <li>Telegram Bot Access: <a href="https://t.me/zyricSWIFTGAIN_bot" class="button-link" target="_blank">SwiftGain BOT</a></li>
+      <li>Telegram Bot Access: <a href="https://t.me/zyricSWIFTGAIN_bot" target="_blank" style="color: gold;">SwiftGain BOT</a></li>
       <li>Secure & Transparent Profits</li>
     </ul>
   </section>
@@ -173,13 +154,14 @@
   <section id="contact">
     <h2>Contact Us</h2>
     <p>Email: support@zyricco.com</p>
+    <p>Telegram: <a href="https://t.me/zyricSWIFTGAIN_bot" target="_blank" style="color: gold;">SwiftGain BOT</a></p>
+    <p>Office Hours: 9:00 AM – 5:00 PM</p>
     <p>Address: 10 Rue de la Paix, 75002 Paris, France</p>
-    <p>Office Hours: Monday – Friday, 9:00 AM to 5:00 PM</p>
-    <p>Telegram: <a href="https://t.me/zyricSWIFTGAIN_bot" class="button-link" target="_blank">SwiftGain BOT</a></p>
   </section>
 
   <footer>
     <p>&copy; 2025 SwiftGain by Zyric & Co. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
