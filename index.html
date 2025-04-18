@@ -55,24 +55,50 @@
       color: #555555;
     }
 
-    nav {
-      background-color: #f8f9fa; /* Light gray background */
-      display: flex;
-      justify-content: center;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #e0e0e0;
+    /* Hamburger Menu Styles */
+    .menu {
+      position: relative;
     }
 
-    nav a {
-      color: #0072CE; /* Blue accent */
-      padding: 0.75rem 1.25rem;
-      text-decoration: none;
-      font-weight: 500;
+    .menu-icon {
+      display: inline-block;
+      cursor: pointer;
     }
 
-    nav a:hover {
-      background-color: #e9ecef; /* Hover effect */
+    .menu-icon span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 4px;
+      background-color: #333333;
+    }
+
+    .menu-dropdown {
+      display: none;
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background-color: #f8f9fa;
+      border: 1px solid #e0e0e0;
       border-radius: 5px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    .menu-dropdown a {
+      display: block;
+      padding: 0.75rem 1.25rem;
+      color: #0072CE;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .menu-dropdown a:hover {
+      background-color: #e9ecef;
+    }
+
+    .menu.open .menu-dropdown {
+      display: block;
     }
 
     section {
@@ -153,24 +179,30 @@
     }
 
     @media (max-width: 768px) {
-      header, nav, section {
-        padding: 1rem;
+      header {
+        flex-direction: row;
+        justify-content: space-between;
       }
 
-      .charts-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      iframe {
-        width: 100% !important;
+      .menu-icon {
+        display: inline-block;
       }
     }
   </style>
   <script>
-    function showPlansMessage() {
-      alert("Currently, all investment plans are unavailable. Please check back soon.");
+    // Function to toggle the dropdown menu
+    function toggleMenu() {
+      const menu = document.querySelector('.menu');
+      menu.classList.toggle('open');
     }
+
+    // Close the menu if clicked outside
+    window.addEventListener('click', function (e) {
+      const menu = document.querySelector('.menu');
+      if (!menu.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
   </script>
 </head>
 <body>
@@ -183,16 +215,22 @@
         <p>by Zyric & Co.</p>
       </div>
     </div>
+    <div class="menu">
+      <div class="menu-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="menu-dropdown">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#plans">Plans</a>
+        <a href="#live-forex-charts">Live Forex Charts</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
   </header>
-
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#plans">Plans</a>
-    <a href="#live-forex-charts">Live Forex Charts</a>
-    <a href="#features">Features</a>
-    <a href="#contact">Contact</a>
-  </nav>
 
   <section id="home">
     <h2>Welcome to Zyric & Co.</h2>
@@ -241,7 +279,9 @@
     <h2>Contact Us</h2>
     <p>Email: support@zyricco.com</p>
     <p>Telegram: <a href="https://t.me/zyricSWIFTGAIN_bot" target="_blank">SwiftGain BOT</a></p>
-    <p>Office Address: 10 Rue de la Paix, 75002 Paris, France</p>
+    <p>Office Address: Zyric & Co., 10 Rue de la Paix, 75002 Paris, France</p>
+    <p>Landmark: Near Place Vendôme</p>
+    <p>Phone: +33 1 23 45 67 89</p>
     <p>Office Hours: Monday - Friday | 9:00 AM - 5:00 PM</p>
   </section>
 
