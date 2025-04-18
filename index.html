@@ -39,6 +39,18 @@
       color: #3b82f6;
       font-weight: bold;
     }
+    .plan-button {
+      background-color: #3b82f6;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .plan-button:hover {
+      background-color: #2563eb;
+    }
     footer {
       background-color: #0f172a;
       color: white;
@@ -46,6 +58,11 @@
       padding: 1rem;
     }
   </style>
+  <script>
+    function showPlansMessage() {
+      alert("Currently, all investment plans are unavailable. Please check back soon.");
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -76,6 +93,7 @@
       <li>Weekly Growth Plan – Balanced growth and stable returns</li>
       <li>LTF Strategy Plan – Long-term focused with expert-backed security</li>
     </ul>
+    <button class="plan-button" onclick="showPlansMessage()">Available Plans</button>
   </section>
 
   <section id="features">
