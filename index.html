@@ -3,291 +3,254 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SwiftGain by Zyric & Co.</title>
+  <title>STYX Market2.0</title>
   <style>
-    /* Base Styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #ffffff; /* White background */
-      color: #333333; /* Dark gray text */
-      line-height: 1.6;
-    }
-
-    a {
-      color: #0072CE; /* Blue links */
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline; /* Underline on hover */
-    }
-
-    header {
-      background-color: #f8f9fa; /* Light gray background */
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    .logo-container img {
-      height: 48px;
-      margin-right: 15px;
-    }
-
-    .logo-text h1 {
+      background-color: #000;
+      color: #0f0;
+      font-family: 'Courier New', monospace;
       margin: 0;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #0072CE; /* Blue accent */
+      padding: 20px;
     }
 
-    .logo-text p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: #555555;
+    h1 {
+      color: #ff0000;
+      text-align: center;
+      font-size: 3em;
+      margin-bottom: 10px;
     }
 
-    /* Hamburger Menu Styles */
-    .menu {
-      position: relative;
-    }
-
-    .menu-icon {
-      display: inline-block;
-      cursor: pointer;
-    }
-
-    .menu-icon span {
-      display: block;
-      width: 25px;
-      height: 3px;
-      margin: 4px;
-      background-color: #333333;
-    }
-
-    .menu-dropdown {
-      display: none;
-      position: absolute;
-      top: 40px;
-      right: 0;
-      background-color: #f8f9fa;
-      border: 1px solid #e0e0e0;
-      border-radius: 5px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      z-index: 10;
-    }
-
-    .menu-dropdown a {
-      display: block;
-      padding: 0.75rem 1.25rem;
-      color: #0072CE;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .menu-dropdown a:hover {
-      background-color: #e9ecef;
-    }
-
-    .menu.open .menu-dropdown {
-      display: block;
-    }
-
-    section {
-      max-width: 960px;
-      margin: auto;
-      padding: 2rem;
+    .subtitle {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #888;
     }
 
     h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #0072CE; /* Blue accent */
+      color: #fff;
+      border-bottom: 1px solid #0f0;
+      padding-bottom: 5px;
+      margin-top: 40px;
     }
 
-    ul {
-      list-style-type: disc;
-      padding-left: 1.5rem;
-      color: #333333;
+    .desc {
+      font-size: 0.9em;
+      margin-bottom: 20px;
+      color: #aaa;
     }
 
-    .plan-button {
-      background-color: #0072CE; /* Blue button */
-      color: #ffffff; /* White text */
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 0.5rem;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #111;
+      border: 1px solid #0f0;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .card h3 {
+      font-size: 1.1em;
+      color: #0f0;
+    }
+
+    .price {
+      color: #fff;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .buy-btn {
+      background-color: transparent;
+      border: 1px solid #0f0;
+      color: #0f0;
+      padding: 10px 15px;
       cursor: pointer;
-      margin-top: 1rem;
+      transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .buy-btn:hover {
+      background-color: #0f0;
+      color: #000;
+    }
+
+    .out {
+      color: red;
       font-weight: bold;
+      margin: 10px 0;
     }
 
-    .plan-button:hover {
-      background-color: #0056a3; /* Darker blue on hover */
-    }
-
-    .subscriber-count {
-      display: flex;
+    #payment-screen {
+      display: none;
+      height: 100vh;
+      justify-content: center;
       align-items: center;
-      margin-top: 20px;
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: #0072CE; /* Blue accent */
+      flex-direction: column;
+      text-align: center;
     }
 
-    .blinking-dot {
-      height: 10px;
-      width: 10px;
-      background-color: green;
-      border-radius: 50%;
-      margin-right: 10px;
+    .btc {
+      font-size: 1.2em;
+      background-color: #111;
+      border: 1px solid #0f0;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .note {
+      color: #f00;
+      font-size: 0.9em;
+      margin-bottom: 20px;
+    }
+
+    .loader {
+      font-size: 1.5em;
       animation: blink 1s infinite;
+      color: #0f0;
+      margin-top: 20px;
     }
 
     @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    .charts-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 30px;
-    }
-
-    iframe {
-      border: none;
-      border-radius: 10px;
-    }
-
-    footer {
-      background-color: #f8f9fa; /* Light gray background */
-      color: #555555;
-      text-align: center;
-      padding: 1rem;
-      border-top: 1px solid #e0e0e0;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-
-      .menu-icon {
-        display: inline-block;
-      }
+      0% { opacity: 1; }
+      50% { opacity: 0.2; }
+      100% { opacity: 1; }
     }
   </style>
-  <script>
-    // Function to toggle the dropdown menu
-    function toggleMenu() {
-      const menu = document.querySelector('.menu');
-      menu.classList.toggle('open');
-    }
-
-    // Close the menu if clicked outside
-    window.addEventListener('click', function (e) {
-      const menu = document.querySelector('.menu');
-      if (!menu.contains(e.target)) {
-        menu.classList.remove('open');
-      }
-    });
-  </script>
 </head>
 <body>
 
-  <header>
-    <div class="logo-container">
-      <img src="logo.png" alt="Zyric & Co. Logo" />
-      <div class="logo-text">
-        <h1>SwiftGain</h1>
-        <p>by Zyric & Co.</p>
+  <!-- PAGE 1: PRODUCT PAGE -->
+  <div id="market-page">
+    <h1>STYX Market2.0</h1>
+    <div class="subtitle">Enter the underground. Buy. Trade. Vanish.</div>
+
+    <h2>Non Checked</h2>
+    <div class="desc">Countries: Mix UK / US | BIN: Random Mix | Live Ratio: 3:11</div>
+    <div class="grid">
+      <div class="card">
+        <h3>1x CC Non Verified</h3>
+        <div class="price">₿ 0.00035</div>
+        <a class="buy-btn" onclick="goToPayment('0.00035')">Buy Now</a>
+      </div>
+      <div class="card">
+        <h3>10x CC Non Verified</h3>
+        <div class="out">OUT OF STOCK</div>
+      </div>
+      <div class="card">
+        <h3>20x CC Non Verified</h3>
+        <div class="price">₿ 0.0063</div>
+        <a class="buy-btn" onclick="goToPayment('0.0063')">Buy Now</a>
+      </div>
+      <div class="card">
+        <h3>50x CC Non Verified</h3>
+        <div class="price">₿ 0.01575</div>
+        <a class="buy-btn" onclick="goToPayment('0.01575')">Buy Now</a>
+      </div>
+      <div class="card">
+        <h3>75x CC Non Verified</h3>
+        <div class="out">OUT OF STOCK</div>
       </div>
     </div>
-    <div class="menu">
-      <div class="menu-icon" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
+
+    <h2>Checked - Live</h2>
+    <div class="desc">Countries: USA, UK, AUS, CA | BINs: Visa, Amex, Mastercard, Discover</div>
+    <div class="grid">
+      <div class="card">
+        <h3>1x CC Verified</h3>
+        <div class="out">OUT OF STOCK</div>
       </div>
-      <div class="menu-dropdown">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#plans">Plans</a>
-        <a href="#live-forex-charts">Live Forex Charts</a>
-        <a href="#features">Features</a>
-        <a href="#contact">Contact</a>
+      <div class="card">
+        <h3>5x CC Verified</h3>
+        <div class="price">₿ 0.00189</div>
+        <a class="buy-btn" onclick="goToPayment('0.00189')">Buy Now</a>
+      </div>
+      <div class="card">
+        <h3>10x CC Verified</h3>
+        <div class="price">₿ 0.00378</div>
+        <a class="buy-btn" onclick="goToPayment('0.00378')">Buy Now</a>
+      </div>
+      <div class="card">
+        <h3>20x CC Verified</h3>
+        <div class="price">₿ 0.006310</div>
+        <a class="buy-btn" onclick="goToPayment('0.006310')">Buy Now</a>
+      </div>
+      <div class="card">
+        <h3>50x CC Verified</h3>
+        <div class="price">₿ 0.0168</div>
+        <a class="buy-btn" onclick="goToPayment('0.0168')">Buy Now</a>
       </div>
     </div>
-  </header>
 
-  <section id="home">
-    <h2>Welcome to Zyric & Co.</h2>
-    <p><strong>Zyric & Co.</strong> is a forward-thinking financial consultancy, specializing in forex trading and investment automation through intelligent tools like <strong>SwiftGain</strong>.</p>
-    <div class="subscriber-count">
-      <div class="blinking-dot"></div>
-      Total Active Plan Subscribers: 32,597
+    <h2>Checked - Live HB</h2>
+    <div class="desc">BINs: AU/US | Live Ratio: 9.7:10</div>
+    <div class="grid">
+      <div class="card">
+        <h3>1x CC Live</h3>
+        <div class="price">₿ 0.00182</div>
+        <a class="buy-btn" onclick="goToPayment('0.00182')">Buy Now</a>
+      </div>
+      <div class="card">
+        <h3>2x CC Live</h3>
+        <div class="price">₿ 0.00340</div>
+        <a class="buy-btn" onclick="goToPayment('0.00340')">Buy Now</a>
+      </div>
+      <div class="card">
+        <h3>5x CC Live</h3>
+        <div class="price">₿ 0.00756</div>
+        <div class="desc">LIMITED QUANTITY REMAINING</div>
+        <a class="buy-btn" onclick="goToPayment('0.00756')">Buy Now</a>
+      </div>
     </div>
-  </section>
 
-  <section id="about">
-    <h2>About SwiftGain</h2>
-    <p><strong>SwiftGain</strong> is a premier financial tool by Zyric & Co., engineered to offer consistent, plan-based profits through advanced forex trading strategies.</p>
-  </section>
-
-  <section id="plans">
-    <h2>Investment Plans</h2>
-    <ul>
-      <li>Daily Return Plan – Short-term profits with low-risk trades</li>
-      <li>Weekly Growth Plan – Balanced growth and stable returns</li>
-      <li>LTF Strategy Plan – Long-term focused with expert-backed security</li>
-    </ul>
-    <button class="plan-button" onclick="showPlansMessage()">Available Plans</button>
-  </section>
-
-  <section id="live-forex-charts">
-    <h2>Live Forex Charts</h2>
-    <div class="charts-container">
-      <iframe src="https://www.tradingview.com/widgetembed/?frameElementId=tradingview_123&symbol=FX:EURUSD&interval=30"></iframe>
-      <iframe src="https://www.tradingview.com/widgetembed/?frameElementId=tradingview_456&symbol=FX:USDJPY&interval=15"></iframe>
-      <iframe src="https://www.tradingview.com/widgetembed/?frameElementId=tradingview_789&symbol=FX:GBPUSD&interval=60"></iframe>
+    <h2>Checked - Live MB</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>1x CC Live</h3>
+        <div class="price">₿ 0.0017</div>
+        <div class="desc">LIMITED QUANTITY REMAINING</div>
+        <a class="buy-btn" onclick="goToPayment('0.0017')">Buy Now</a>
+      </div>
+      <div class="card">
+        <h3>2x CC Live</h3>
+        <div class="price">₿ 0.00323</div>
+        <div class="desc">LIMITED QUANTITY REMAINING</div>
+        <a class="buy-btn" onclick="goToPayment('0.00323')">Buy Now</a>
+      </div>
     </div>
-  </section>
 
-  <section id="features">
-    <h2>Features</h2>
-    <ul>
-      <li>Comprehensive Forex Trading Tools</li>
-      <li>Real-time Updates</li>
-      <li>Advanced Analytics</li>
-      <li>Customizable Strategies</li>
-    </ul>
-  </section>
+    <h2>Checked - Live LB</h2>
+    <div class="card">
+      <h3>All LB Products</h3>
+      <div class="out">OUT OF STOCK</div>
+    </div>
+  </div>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: support@zyricco.com</p>
-    <p>Telegram: <a href="https://t.me/zyricSWIFTGAIN_bot" target="_blank">SwiftGain BOT</a></p>
-    <p>Office Address: Zyric & Co., 10 Rue de la Paix, 75002 Paris, France</p>
-    <p>Landmark: Near Place Vendôme</p>
-    <p>Phone: +33 1 23 45 67 89</p>
-    <p>Office Hours: Monday - Friday | 9:00 AM - 5:00 PM</p>
-  </section>
+  <!-- PAGE 2: PAYMENT -->
+  <div id="payment-screen" style="display: none; flex-direction: column;">
+    <h1>Payment Required</h1>
+    <div class="btc">
+      BTC Address:<br>
+      <strong>bc1qmg53dvtnse4nyu4guhqhazce44mnapw5fhtsh5</strong><br><br>
+      Amount: <strong id="btc-amount">₿ 0.00000</strong>
+    </div>
+    <div class="note">Note: Do not transfer/send any other cryptocurrency to the address.</div>
+    <div class="loader">Waiting for Payment...</div>
+  </div>
 
-  <footer>
-    <p>&copy; 2025 SwiftGain by Zyric & Co. All rights reserved.</p>
-  </footer>
+  <script>
+    function goToPayment(amount) {
+      document.getElementById('market-page').style.display = 'none';
+      document.getElementById('payment-screen').style.display = 'flex';
+      document.getElementById('btc-amount').textContent = `₿ ${amount}`;
+    }
+  </script>
 
 </body>
 </html>
